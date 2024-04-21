@@ -1,0 +1,78 @@
+/* Left half styles */
+.left-half {
+    width: 50%;
+    height: 100vh;
+    background-color: #623DEE; /* Blue color */
+    float: left; /* Place left half on the left */
+    position: relative; /* To make it possible to position text absolutely */
+}
+
+/* Transit text styles */
+.transit-text {
+    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-weight: 800; /* Font weight */
+    font-size: 58px; /* Font size */
+    line-height: 70.7px; /* Line height */
+    letter-spacing: -5%; /* Letter spacing */
+    color: #ffffff; /* White color */
+    position: absolute; /* Position text absolutely */
+    top: 50%; /* Vertically center text */
+    left: 50%; /* Horizontally center text */
+    transform: translate(-50%, -50%); /* Center text precisely */
+}
+
+/* Right half styles */
+.right-half {
+    width: 50%;
+    height: 100vh;
+    background-color: #ffffff; /* White color */
+    float: right; /* Place right half on the right */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Login box styles */
+.login-box {
+    width: 80%;
+    max-width: 300px; /* Maximum width of the login box */
+    padding: 20px;
+    border-radius: 5px; /* Make corners curved */
+    background-color: #ffffff; /* White background color */
+    box-shadow: none; /* Remove shadow */
+    border: 1px solid #ffffff; /* White border color */
+}
+
+/* Label styles */
+/* Label styles */
+.login-box label {
+    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-weight: 800; /* Font weight */
+    font-size: 30px; /* Font size */
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Input field styles */
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #cccccc; /* Add bottom border */
+    border-radius: 3px;
+}
+
+/* Login button styles */
+.login-box button {
+    width: 190px; /* Width */
+    height: 40px; /* Height */
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #623DEE; /* Blue color */
+    color: #ffffff; /* White color */
+    border: none;
+    border-radius: 20px; /* Make corners curved */
+    cursor: pointer;
+}
