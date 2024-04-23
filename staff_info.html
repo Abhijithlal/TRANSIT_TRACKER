@@ -18,8 +18,6 @@
         <label class="ip lab" for="End-station">End Station</label>
         <input class="ip" type="text" name="" id="toInput">
         <br>
-        <label class="ip lab" for="journeyDate">Journey Date</label>
-        <input class="ip" type="date" id="dateInput" name="journeyDate">
         <br>
         <button class="ip" type="button" class="btn btn-primary" id="searchBtn">Submit</button>
       </div>
@@ -33,9 +31,12 @@
 async function fetchApi() {
    from = document.getElementById('fromInput').value;
    to = document.getElementById('toInput').value;
-   date = document.getElementById('dateInput').value;
-  const url = `https://onlineksrtcswift.com/api/resource/searchRoutesV4?fromCityName=${from}&toCityName=${to}&journeyDate=${date}&mode=oneway`;
-
+   const currentDate = new Date();
+   const year = currentDate.getFullYear();
+   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+   const day = String(currentDate.getDate()).padStart(2, '0');
+   const date = `${year}-${month}-${day}`;
+   const url = `https://onlineksrtcswift.com/api/resource/searchRoutesV4?fromCityName=${from}&toCityName=${to}&journeyDate=${date}&mode=oneway`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
