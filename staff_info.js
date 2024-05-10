@@ -64,10 +64,11 @@ function displayBusResults(data) {
 
         // Add event listener to each row
         row.addEventListener('click', function() {
+            console.log('Row clicked!');
             // Store routescheduleid in localStorage
             localStorage.setItem('routescheduleid_staff', bus.RouteScheduleId);
-            localStorage.setItem('from', from);
-            localStorage.setItem('to', to);
+            //localStorage.setItem('from', from);
+           // localStorage.setItem('to', to);
 
             // Redirect to another file
             window.location.href = 'staff_profile.html';

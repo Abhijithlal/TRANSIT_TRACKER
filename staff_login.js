@@ -21,27 +21,14 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", function() {
     const signupButton = document.getElementById("signup-button");
 
-    signupButton.addEventListener("click", (e) => {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-
-       createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed up 
-                const user = userCredential.user;
-                alert('User created');
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorMessage);
-            });
-
-        });
+    signupButton.addEventListener("click", (e) =>{
+        window.location.href = "staff_signup.html"; // Redirect to the staff signup page
+    });
 });
+
 
 document.addEventListener("DOMContentLoaded", (e) => {
     const loginButton = document.getElementById("login-button");
@@ -49,13 +36,16 @@ document.addEventListener("DOMContentLoaded", (e) => {
     loginButton.addEventListener("click", (e) => {
         var email = document.getElementById("email").value;
         var password = document.getElementById("password").value;
-       
+        var username = document.getElementById("username").value;
+        
+        localStorage.setItem('username',username);
 
            signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                // Signed in 
              const user = userCredential.user;
              alert('Logined');
+             localStorage.setItem('username',username);
              window.location.href = "staff_info.html";
                     // ...
              })

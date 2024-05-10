@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getDatabase, ref, push, update } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+import { getDatabase, ref, push, update ,get } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
 const appsettings = {
     databaseURL: "https://sample-7ef53-default-rtdb.firebaseio.com/"
@@ -8,6 +8,7 @@ const appsettings = {
 const app = initializeApp(appsettings);
 const database = getDatabase(app);
 const BUSESRef = ref(database, "LIST OF BUSES");
+const staffdataRef = ref(database, "STAFF DATA");
 
 let busRef = null; // Store reference to the bus node
 const bus_id = localStorage.getItem('routescheduleid_staff');
@@ -72,3 +73,28 @@ function getLocation() {
 }
 getLocation();
 setInterval(() => getLocation(), 4000);
+
+
+async function getstaffdata(username) {
+    try {
+        const snapshot = await get(staffdataRef);
+        if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+                const staff_data = childSnapshot.val();
+                if (staff_data.username === username) {
+                    const email = staff_data.email;
+                    const service_id = staff_data.service_id;
+                    console.log(`email : ${email}: service_id - ${service_id}}`);
+                   
+                }
+            });
+            
+        } else {
+            console.log(`No bus data found in the database.`);
+        }
+    } catch (error) {
+        console.error("Error fetching bus data:", error);
+    }
+}
+const username = localStorage.getItem('username');
+getstaffdata(username);
