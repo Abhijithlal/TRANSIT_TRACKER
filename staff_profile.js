@@ -1,18 +1,17 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"
-import { getDatabase, ref, push, update } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getDatabase, ref, push, update } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
 const appsettings = {
     databaseURL: "https://sample-7ef53-default-rtdb.firebaseio.com/"
-}
+};
 
-const app = initializeApp(appsettings)
-const database = getDatabase(app)
+const app = initializeApp(appsettings);
+const database = getDatabase(app);
 const BUSESRef = ref(database, "LIST OF BUSES");
 
 let busRef = null; // Store reference to the bus node
-var bus_id = localStorage.getItem('routescheduleid_staff');
-console.log(bus_id)
-
+const bus_id = localStorage.getItem('routescheduleid_staff');
+console.log(bus_id);
 
 // Function to push latitude and longitude to Firebase
 function pushLocationToFirebase(latitude, longitude) {
@@ -40,8 +39,8 @@ function UpdateLocation(latitude, longitude) {
     }
 }
 
-var latitude;
-var longitude;
+let latitude;
+let longitude;
 
 function getLocation() {
     if ("geolocation" in navigator) {
@@ -51,7 +50,6 @@ function getLocation() {
 
             pushLocationToFirebase(latitude, longitude);
             UpdateLocation(latitude, longitude);
-
         }, function(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
