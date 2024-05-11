@@ -74,7 +74,6 @@ function getLocation() {
 getLocation();
 setInterval(() => getLocation(), 4000);
 
-
 async function getstaffdata(username) {
     try {
         const snapshot = await get(staffdataRef);
@@ -84,8 +83,22 @@ async function getstaffdata(username) {
                 if (staff_data.username === username) {
                     const email = staff_data.email;
                     const service_id = staff_data.service_id;
-                    console.log(`email : ${email}: service_id - ${service_id}}`);
-                   
+                    const phone_number = staff_data. phone_no;
+                    const license_number = staff_data.driving_license_no;
+                    const depo = staff_data.depo;
+
+                    const routescheduleid_staff = localStorage.getItem('routescheduleid_staff');
+                    const from = localStorage.getItem('from');
+                    const to = localStorage.getItem('to');
+
+                    // Update input fields with retrieved data
+                    console.log(email)
+                    document.getElementById('username').value = username;
+                    document.getElementById('email').value = email;
+                    document.getElementById('service_id').value = service_id;
+                    document.getElementById('phone_number').value = phone_number;
+                    document.getElementById('license_number').value = license_number;
+                    document.getElementById('depo').value = depo;
                 }
             });
             
@@ -96,5 +109,9 @@ async function getstaffdata(username) {
         console.error("Error fetching bus data:", error);
     }
 }
+
+
+
+
 const username = localStorage.getItem('username');
 getstaffdata(username);

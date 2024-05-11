@@ -1,8 +1,10 @@
 document.getElementById('searchBtn').addEventListener('click', fetchApi);
+let from=null;
+let to=null;
 
 async function fetchApi() {
-    const from = document.getElementById('fromInput').value;
-    const to = document.getElementById('toInput').value;
+     from = document.getElementById('fromInput').value;
+     to = document.getElementById('toInput').value;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -67,8 +69,8 @@ function displayBusResults(data) {
             console.log('Row clicked!');
             // Store routescheduleid in localStorage
             localStorage.setItem('routescheduleid_staff', bus.RouteScheduleId);
-            //localStorage.setItem('from', from);
-           // localStorage.setItem('to', to);
+            localStorage.setItem('from', from);
+            localStorage.setItem('to', to);
 
             // Redirect to another file
             window.location.href = 'staff_profile.html';

@@ -31,7 +31,7 @@ function pushstaffdata(email, password,service_id,username,phone_no,driving_lice
     update(dataRef, {
         username : username,
         service_id : service_id,
-        Email : email,
+        email : email,
         password : password,
         phone_no : phone_no,
         driving_license_no : driving_license_no,
