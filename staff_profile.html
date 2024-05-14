@@ -9,45 +9,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet"> <!-- Import Montserrat font -->
 </head>
 <body>
-    <div class="top">
-        <div class="transit-text">PROFILE</div>
-    </div>
-    <div class="bottom">
-        <div class="login-box">
-            <div class="contents">
-                <div class="status">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Username">
-
-                    <label for="service_id">Service ID</label>
-                    <input type="text" id="service_id" placeholder="Service ID">
-
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Email">
-
-                    <label for="phone_number">Phone Number</label>
-                    <input type="number" id="phone_number" placeholder="Phone Number">
-
-                    <label for="license_number">License Number</label>
-                    <input type="text" id="license_number" placeholder="License Number">
-
-                    <label for="depo">Depo</label>
-                    <input type="text" id="depo" placeholder="Depo">
-
-                    <label for="routescheduleid_staff">Bus_id</label>
-                    <input type="text" id="bus_id" placeholder="Bus_id">
-
-                    <label for="from">from</label>
-                    <input type="text" id="from" placeholder="from">
-
-                    <label for="to">To</label>
-                    <input type="text" id="to" placeholder="to">
-                </div>
-            </div>
+  <div class="main-container">
+    <div class="left">
+        <div class="img-section">
+          <img src="./Images/pfp.png" alt="profile picture" class="pfp">
         </div>
+        <div class="Username">
+          <input class="name-info" type="text" id="username" readonly>
+        </div>
+        <div class="left-info">
+          <label for="service_id">Service ID: </label>
+          <input class="l-info" type="text" id="service_id" readonly>
+        </div>
+        <div class="left-info">
+          <label for="phone_number">Phone No.: </label>
+          <input class="l-info" type="number" id="phone_number" readonly>
+        </div>
+        <button class="btn" id="signOut">Sign-out</button>
     </div>
-    <script src="staff_profile.js" type="module"></script>
-    <script type="text/javascript">
+    <div class="right">
+      <h1 class="profileHeading">Profile</h1>
+      <div class="contents">
+        <div class="status">
+          <ul>
+            <li>
+              <div class="details">
+                <label for="email">Email: </label>
+                <input type="email" id="email" readonly>
+              </div>
+            </li>
+            <li>
+              <div class="details">
+                <label for="license_number">License No.: </label>
+                <input type="text" id="license_number" readonly>
+              </div>
+            </li>
+            <li>
+              <div class="details">
+                <label for="depo">Depo: </label>
+                <input type="text" id="depo" readonly>
+              </div>
+            </li>
+            <li>
+              <div class="details">
+                <label for="routescheduleid_staff">Bus_id: </label>
+                <input type="text" id="bus_id" readonly>
+            </div>
+            </li>
+            <li>
+              <div class="details">
+                <label for="from">from: </label>
+                <input type="text" id="from" readonly>
+              </div>
+            </li>
+            <li>
+              <div class="details">
+                <label for="to">To: </label>
+                <input type="text" id="to" readonly>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="staff_profile.js" type="module"></script>
+  <script type="text/javascript">
         // Retrieve data from local storage
         const routescheduleid_staff = localStorage.getItem('routescheduleid_staff');
         const from = localStorage.getItem('from');
