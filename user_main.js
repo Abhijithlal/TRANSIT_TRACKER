@@ -40,9 +40,10 @@ function displayBusResults(data) {
 
   // Create table header
   const headers = ['Service Type', 'Departure Time', 'Arrival Time', 'Available Seats'];
-  const headerRow = document.createElement('tr');
+  const headerRow = document.createElement('div');
+  headerRow.classList.add('bus-header');
   headers.forEach(headerText => {
-    const th = document.createElement('th');
+    const th = document.createElement('div');
     th.textContent = headerText;
     headerRow.appendChild(th);
   });
@@ -50,18 +51,25 @@ function displayBusResults(data) {
 
   // Populate table with data
   data.forEach(bus => {
-    const row = document.createElement('tr');
+    const row = document.createElement('div');
     row.classList.add('bus-row');
-    const serviceTypeCell = document.createElement('td');
+    const serviceTypeCell = document.createElement('div');
+    serviceTypeCell.classList.add('bus-service-type');
     serviceTypeCell.textContent = bus.ServiceType;
     row.appendChild(serviceTypeCell);
-    const departureTimeCell = document.createElement('td');
+
+    const departureTimeCell = document.createElement('div');
+    departureTimeCell.classList.add('dept-time-type');
     departureTimeCell.textContent = bus.DepartureTime;
     row.appendChild(departureTimeCell);
-    const arrivalTimeCell = document.createElement('td');
+
+    const arrivalTimeCell = document.createElement('div');
+    arrivalTimeCell.classList.add('arr-time-type');
     arrivalTimeCell.textContent = bus.ArrivalTime;
     row.appendChild(arrivalTimeCell);
-    const availableSeatsCell = document.createElement('td');
+
+    const availableSeatsCell = document.createElement('div');
+    availableSeatsCell.classList.add('avail-seat-type');
     availableSeatsCell.textContent = bus.AvailableSeats;
     row.appendChild(availableSeatsCell);
 
