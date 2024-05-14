@@ -42,28 +42,33 @@ function displayBusResults(data) {
 
     // Create table header
     const headers = ['Service Type', 'Departure Time', 'Arrival Time'];
-    const headerRow = document.createElement('tr');
+    const headerRow = document.createElement('div');
+    headerRow.classList.add('bus-header');
     headers.forEach(headerText => {
-        const th = document.createElement('th');
-        th.textContent = headerText;
-        headerRow.appendChild(th);
+      const th = document.createElement('div');
+      th.textContent = headerText;
+      headerRow.appendChild(th);
     });
     table.appendChild(headerRow);
 
     // Populate table with data
     data.forEach(bus => {
-        const row = document.createElement('tr');
-        row.classList.add('bus-row');
-        const serviceTypeCell = document.createElement('td');
-        serviceTypeCell.textContent = bus.ServiceType;
-        row.appendChild(serviceTypeCell);
-        const departureTimeCell = document.createElement('td');
-        departureTimeCell.textContent = bus.DepartureTime;
-        row.appendChild(departureTimeCell);
-        const arrivalTimeCell = document.createElement('td');
-        arrivalTimeCell.textContent = bus.ArrivalTime;
-        row.appendChild(arrivalTimeCell);
-
+      const row = document.createElement('div');
+      row.classList.add('bus-row');
+      const serviceTypeCell = document.createElement('div');
+      serviceTypeCell.classList.add('bus-service-type');
+      serviceTypeCell.textContent = bus.ServiceType;
+      row.appendChild(serviceTypeCell);
+  
+      const departureTimeCell = document.createElement('div');
+      departureTimeCell.classList.add('dept-time-type');
+      departureTimeCell.textContent = bus.DepartureTime;
+      row.appendChild(departureTimeCell);
+  
+      const arrivalTimeCell = document.createElement('div');
+      arrivalTimeCell.classList.add('arr-time-type');
+      arrivalTimeCell.textContent = bus.ArrivalTime;
+      row.appendChild(arrivalTimeCell);
         // Add event listener to each row
         row.addEventListener('click', function() {
             console.log('Row clicked!');
